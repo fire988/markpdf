@@ -37,6 +37,8 @@ func adjustImagePosition(watermarkImg *creator.Image, c *creator.Creator) {
 		offsetY = (c.Context().PageHeight - watermarkImg.Height()) / 2
 	}
 
+	watermarkImg.ScaleToWidth(c.Context().PageWidth / 20)
+	watermarkImg.ScaleToHeight(c.Context().PageHeight / 20)
 	// None of the above logic is setting negative position
 	// So, if found, that must be set from command line flags
 	if offsetX < 0 {
